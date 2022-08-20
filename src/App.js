@@ -1,12 +1,17 @@
 import React from "react";
+import Review from "./Review";
 
 const App = () => {
   return (
-    <>
-      <div>
-        <h1>Hello</h1>
-      </div>
-    </>
+    <main>
+      <section className="container">
+        <div className="title">
+          <h2>Our Reviews</h2>
+          <div className="underline"></div>
+        </div>
+        <Review />
+      </section>
+    </main>
   );
 };
 
