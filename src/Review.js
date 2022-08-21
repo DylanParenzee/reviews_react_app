@@ -4,6 +4,22 @@ import people from "./data";
 const Review = () => {
   const [index, setIndex] = useState(0);
   const { name, job, image, text } = people[index];
+
+  const handleNext = () => {
+    if (index >= 0 && index < 3) {
+      return setIndex(index + 1);
+    }
+  };
+  const handlePrev = () => {
+    if (index > 0) {
+      return setIndex(index - 1);
+    }
+  };
+  const handleRandom = () => {
+    let rand = Math.floor(Math.random() * 4);
+    setIndex(rand);
+    console.log(rand);
+  };
   return (
     <article className="review">
       <div className="img-container">
@@ -27,7 +43,7 @@ const Review = () => {
       <p className="job">{job}</p>
       <p className="info">{text}</p>
       <div className="button-container">
-        <button className="prev-btn">
+        <button onClick={handlePrev} className="prev-btn">
           <svg
             stroke="currentColor"
             fill="currentColor"
@@ -44,7 +60,7 @@ const Review = () => {
             ></path>
           </svg>
         </button>
-        <button className="next-btn">
+        <button onClick={handleNext} className="next-btn">
           <svg
             stroke="currentColor"
             fill="currentColor"
@@ -62,7 +78,9 @@ const Review = () => {
           </svg>
         </button>
       </div>
-      <button className="random-btn">Surprise-Me</button>
+      <button onClick={handleRandom} className="random-btn">
+        Surprise-Me
+      </button>
     </article>
   );
 };
